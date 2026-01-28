@@ -1,38 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>QuickSetup PC</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PC Quick Setup</title>
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 700px;
+      padding: 40px;
+      background: #020617;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .features {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .features li {
+      margin-bottom: 10px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 15px 35px;
+      background: #2563eb;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      transition: 0.2s ease;
+    }
+
+    .download-btn:hover {
+      background: #1d4ed8;
+      transform: scale(1.03);
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
 <body>
 
   <div class="container">
-    <h1>🚀 QuickSetup PC</h1>
-    <p class="subtitle">O único app que deixa seu PC funcional em 2 toques.</p>
+    <h1>PC Quick Setup</h1>
 
-    <button id="toggle-theme" class="btn">
-      🌙 Modo Escuro
-    </button>
+    <p>
+      O único app que deixa seu PC funcional em minutos.<br />
+      Instale os apps essenciais com poucos cliques.
+    </p>
 
-    <a href="#" class="btn">⬇️ Baixar agora</a>
-
-    <h2>🎮 Pacote Gamer</h2>
-    <ul>
-      <li>Steam</li>
-      <li>Discord</li>
-      <li>MSI Afterburner</li>
+    <ul class="features">
+      <li>✔ Pacote Gamer (Steam, Discord, MSI Afterburner)</li>
+      <li>✔ Pacote Home (Chrome, PDF, apps básicos)</li>
+      <li>✔ Rápido, simples e gratuito</li>
+      <li>✔ Ideal pra PC formatado</li>
     </ul>
 
-    <h2>🏠 Pacote Home</h2>
-    <ul>
-      <li>Navegador</li>
-      <li>Leitor de PDF</li>
-      <li>Apps básicos</li>
-    </ul>
+    <!-- 🔥 BOTÃO DE DOWNLOAD -->
+    <a
+      class="download-btn"
+      href="https://github.com/el-abacaxiu/QuickSetup/releases/download/v1.0/QuickSetup.zip"
+      download
+    >
+      Baixar agora
+    </a>
+
+    <footer>
+      <p>Projeto independente • Feito no Brasil 🇧🇷</p>
+    </footer>
   </div>
 
-  <script src="script.js"></script>
 </body>
 </html>
