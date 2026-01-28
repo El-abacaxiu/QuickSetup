@@ -46,3 +46,19 @@ ul li {
   padding: 10px;
   border-radius: 6px;
 }
+body.claro {
+  background: #f3f3f3;
+  color: #000;
+}
+
+body.claro .subtitle {
+  color: #444;
+}
+
+body.claro .btn {
+  background: #0078d7;
+}
+
+body.claro ul li {
+  background: #e5e7eb;
+}
