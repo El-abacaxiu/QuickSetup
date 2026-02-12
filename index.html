@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QuickSetup</title>
-  <link rel="icon" href="template.ico?v=2">
+  <link rel="icon" href="template.ico?v=3">
 
   <style>
     * {
@@ -56,7 +56,6 @@
       transform: scale(1.1);
     }
 
-    /* 🔥 CONTEÚDO */
     .content {
       margin-left: 85px;
       width: 100%;
@@ -78,33 +77,37 @@
       background: #020617;
       padding: 40px;
       border-radius: 16px;
-
-      /* glow gamer */
       box-shadow: 0 0 50px rgba(37,99,235,.25);
-
       text-align: center;
     }
 
-    /* 🔥 TÍTULO GIGANTE */
-    .main-title{
+    /* 🔥 TÍTULO GELATINOSO */
+    .main-title {
       position: absolute;
       top: 22%;
       left: 50%;
       transform: translate(-50%, -50%);
 
-      font-size: 95px;
+      font-size: 100px;
       font-weight: 900;
-      letter-spacing: 2px;
+      color: white;
 
-      background: linear-gradient(90deg,#3b82f6,#60a5fa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-
-      text-align: center;
-      user-select: none;
+      animation: jelly 3s ease-in-out infinite;
+      text-shadow: 0 0 25px rgba(255,255,255,.15);
     }
 
-    #home .card{
+    /* ✨ ANIMAÇÃO MOLENGA */
+    @keyframes jelly {
+      0%   { transform: translate(-50%, -50%) scale(1,1); }
+      20%  { transform: translate(-50%, -50%) scale(1.1,.9); }
+      35%  { transform: translate(-50%, -50%) scale(.9,1.1); }
+      50%  { transform: translate(-50%, -50%) scale(1.05,.95); }
+      65%  { transform: translate(-50%, -50%) scale(.98,1.02); }
+      80%  { transform: translate(-50%, -50%) scale(1.02,.98); }
+      100% { transform: translate(-50%, -50%) scale(1,1); }
+    }
+
+    #home .card {
       margin-top: 140px;
     }
 
@@ -119,8 +122,6 @@
 
     ul {
       list-style: none;
-      margin-top: 10px;
-      opacity: .9;
     }
 
     ul li {
@@ -150,7 +151,7 @@
       transform: scale(1.05);
     }
 
-    /* 🌞 TEMA CLARO */
+    /* 🌞 modo claro */
     body.claro {
       background: #f3f3f3;
       color: #111;
@@ -169,7 +170,6 @@
 
 <body>
 
-  <!-- 🔥 SIDEBAR -->
   <div class="sidebar">
     <div class="nav-btn" onclick="go('home')">🏠</div>
     <div class="nav-btn" onclick="go('sobre')">📄</div>
@@ -177,7 +177,6 @@
     <div class="nav-btn" onclick="go('download')">⬇️</div>
     <div class="nav-btn" id="toggle-theme">🌙</div>
   </div>
-
 
   <div class="content">
 
@@ -196,26 +195,20 @@
       </div>
     </section>
 
-
     <!-- SOBRE -->
     <section id="sobre">
       <div class="card">
         <h2>Sobre o Projeto</h2>
-
-        <p>
-          O QuickSetup instala automaticamente os apps essenciais
-          para deixar o PC pronto para jogos ou uso diário.
-        </p>
+        <p>Instala automaticamente os apps essenciais pra deixar o PC pronto.</p>
 
         <ul>
-          <li>✔ Instala apps automaticamente</li>
-          <li>✔ Ideal para PC recém-formatado</li>
-          <li>✔ Rápido e leve</li>
-          <li>✔ 100% gratuito</li>
+          <li>✔ Automático</li>
+          <li>✔ Leve</li>
+          <li>✔ Rápido</li>
+          <li>✔ Gratuito</li>
         </ul>
       </div>
     </section>
-
 
     <!-- PRINTS -->
     <section id="prints">
@@ -224,7 +217,6 @@
         <img src="print01.jpeg">
       </div>
     </section>
-
 
     <!-- DOWNLOAD -->
     <section id="download">
@@ -240,7 +232,6 @@
     </section>
 
   </div>
-
 
   <script>
     function go(id){
