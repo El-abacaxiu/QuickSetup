@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PC Quick Setup</title>
-  <link rel="icon" href="template.ico?v=1" type="image/x-icon">
+  <title>QuickSetup</title>
+  <link rel="icon" href="template.ico?v=2">
 
   <style>
     * {
@@ -14,138 +14,204 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
+      display: flex;
       background: #0f172a;
       color: #e5e7eb;
     }
 
-    /* 🔥 HERO (título + print) */
-    .hero {
-      min-height: 100vh;
+    /* 🔥 SIDEBAR */
+    .sidebar {
+      width: 85px;
+      height: 100vh;
+      background: #020617;
+      position: fixed;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 40px 20px;
+      padding-top: 20px;
+      gap: 18px;
+      border-right: 1px solid #111;
     }
 
-    .hero h1 {
-      font-size: 72px;
-      font-weight: 900;
-      color: #fff;
+    .nav-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: .2s;
+      font-size: 20px;
+    }
+
+    .nav-btn:hover {
+      background: #2563eb;
+      transform: scale(1.1);
+    }
+
+    /* 🔥 CONTEÚDO */
+    .content {
+      margin-left: 85px;
+      width: 100%;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 60px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      max-width: 800px;
+      width: 100%;
+      background: #020617;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(0,0,0,.6);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 64px;
       margin-bottom: 15px;
     }
 
-    .hero p {
-      font-size: 20px;
-      opacity: 0.8;
-      margin-bottom: 40px;
-    }
-
-    .preview {
-      width: 90%;
-      max-width: 900px;
-      border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.7);
-    }
-
-    /* 🔥 CONTAINER ORIGINAL */
-    .container {
-      max-width: 700px;
-      margin: 60px auto;
-      padding: 40px;
-      background: #020617;
-      border-radius: 14px;
-      text-align: center;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
-    }
-
     h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     p {
-      font-size: 1.05rem;
-      opacity: 0.85;
-      margin-bottom: 30px;
-      line-height: 1.6;
+      opacity: .85;
+      margin-bottom: 20px;
     }
 
-    .features {
-      text-align: left;
-      margin-bottom: 30px;
+    img {
+      width: 100%;
+      border-radius: 14px;
+      margin-top: 20px;
     }
 
-    .features li {
-      margin-bottom: 10px;
-    }
-
-    .download-btn {
+    .btn {
       display: inline-block;
-      padding: 15px 35px;
+      padding: 16px 40px;
       background: #2563eb;
-      color: #fff;
+      color: white;
       text-decoration: none;
-      font-size: 1.1rem;
-      border-radius: 10px;
-      transition: 0.2s ease;
+      border-radius: 12px;
+      margin-top: 20px;
+      transition: .2s;
+      font-weight: bold;
     }
 
-    .download-btn:hover {
+    .btn:hover {
       background: #1d4ed8;
-      transform: scale(1.03);
+      transform: scale(1.05);
     }
 
-    footer {
-      margin-top: 25px;
-      font-size: 0.9rem;
-      opacity: 0.6;
+    /* 🌞 TEMA CLARO */
+    body.claro {
+      background: #f3f3f3;
+      color: #111;
     }
+
+    body.claro .sidebar {
+      background: #e5e7eb;
+    }
+
+    body.claro .card {
+      background: white;
+    }
+
   </style>
 </head>
 
 <body>
 
-  <!-- 🔥 HERO SECTION NOVA -->
-  <section class="hero">
-    <h1>QuickSetup</h1>
-    <p>Seu PC pronto em minutos 🚀</p>
-
-    <!-- troca pelo print do teu app -->
-    <img src="print01.jpeg" alt="Preview do app" class="preview" />
-  </section>
-
-
-  <!-- 🔥 SEÇÃO ANTIGA (igual tu já tinha) -->
-  <div class="container">
-    <h2>PC Quick Setup</h2>
-
-    <p>
-      O único app que deixa seu PC funcional em minutos.<br />
-      Instale os apps essenciais com poucos cliques.
-    </p>
-
-    <ul class="features">
-      <li>✔ Pacote Gamer (Steam, Discord, MSI Afterburner)</li>
-      <li>✔ Pacote Home (Chrome, PDF, apps básicos)</li>
-      <li>✔ Rápido, simples e gratuito</li>
-      <li>✔ Ideal pra PC formatado</li>
-    </ul>
-
-    <a
-      class="download-btn"
-      href="https://github.com/el-abacaxiu/QuickSetup/releases/download/v1.0/QuickSetup.zip"
-      download
-    >
-      Baixar agora
-    </a>
-
-    <footer>
-      <p>Projeto independente • Feito no Brasil 🇧🇷</p>
-    </footer>
+  <!-- 🔥 SIDEBAR -->
+  <div class="sidebar">
+    <div class="nav-btn" onclick="go('home')">🏠</div>
+    <div class="nav-btn" onclick="go('sobre')">📄</div>
+    <div class="nav-btn" onclick="go('prints')">🖼️</div>
+    <div class="nav-btn" onclick="go('download')">⬇️</div>
+    <div class="nav-btn" id="toggle-theme">🌙</div>
   </div>
+
+
+  <div class="content">
+
+    <!-- HOME -->
+    <section id="home">
+      <div class="card">
+        <h1>QuickSetup</h1>
+        <p>Seu PC pronto em minutos 🚀</p>
+
+        <a class="btn"
+        href="https://github.com/el-abacaxiu/QuickSetup/releases/download/v1.0/QuickSetup.zip">
+          Baixar Agora
+        </a>
+      </div>
+    </section>
+
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <div class="card">
+        <h2>Sobre o Projeto</h2>
+        <p>
+          O QuickSetup instala automaticamente os apps essenciais
+          para deixar o PC pronto para jogos ou uso diário.
+          Ideal após formatar o computador.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- PRINTS -->
+    <section id="prints">
+      <div class="card">
+        <h2>Preview</h2>
+        <img src="print01.jpeg">
+      </div>
+    </section>
+
+
+    <!-- DOWNLOAD -->
+    <section id="download">
+      <div class="card">
+        <h2>Download</h2>
+        <a class="btn"
+        href="https://github.com/el-abacaxiu/QuickSetup/releases/download/v1.0/QuickSetup.zip">
+          Baixar ZIP
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+
+  <script>
+    function go(id){
+      document.getElementById(id).scrollIntoView();
+    }
+
+    const btnTema = document.getElementById("toggle-theme");
+
+    btnTema.addEventListener("click", () => {
+      document.body.classList.toggle("claro");
+      btnTema.textContent =
+        document.body.classList.contains("claro") ? "☀️" : "🌙";
+    });
+  </script>
 
 </body>
 </html>
+
