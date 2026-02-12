@@ -60,6 +60,7 @@
     .content {
       margin-left: 85px;
       width: 100%;
+      position: relative;
     }
 
     section {
@@ -68,6 +69,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
     }
 
     .card {
@@ -76,13 +78,34 @@
       background: #020617;
       padding: 40px;
       border-radius: 16px;
-      box-shadow: 0 0 40px rgba(0,0,0,.6);
+
+      /* glow gamer */
+      box-shadow: 0 0 50px rgba(37,99,235,.25);
+
       text-align: center;
     }
 
-    h1 {
-      font-size: 64px;
-      margin-bottom: 15px;
+    /* 🔥 TÍTULO GIGANTE */
+    .main-title{
+      position: absolute;
+      top: 22%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      font-size: 95px;
+      font-weight: 900;
+      letter-spacing: 2px;
+
+      background: linear-gradient(90deg,#3b82f6,#60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      text-align: center;
+      user-select: none;
+    }
+
+    #home .card{
+      margin-top: 140px;
     }
 
     h2 {
@@ -92,6 +115,16 @@
     p {
       opacity: .85;
       margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 10px;
+      opacity: .9;
+    }
+
+    ul li {
+      margin: 6px 0;
     }
 
     img {
@@ -150,8 +183,10 @@
 
     <!-- HOME -->
     <section id="home">
+
+      <h1 class="main-title">QuickSetup</h1>
+
       <div class="card">
-        <h1>QuickSetup</h1>
         <p>Seu PC pronto em minutos 🚀</p>
 
         <a class="btn"
@@ -166,18 +201,18 @@
     <section id="sobre">
       <div class="card">
         <h2>Sobre o Projeto</h2>
+
         <p>
           O QuickSetup instala automaticamente os apps essenciais
           para deixar o PC pronto para jogos ou uso diário.
-          Ideal após formatar o computador.
         </p>
 
-        </p>
-           ✔ Instala apps automaticamente
-           ✔ Ideal para PC recém-formatado
-           ✔ Rápido e leve
-           ✔ 100% gratuito
-        </p>
+        <ul>
+          <li>✔ Instala apps automaticamente</li>
+          <li>✔ Ideal para PC recém-formatado</li>
+          <li>✔ Rápido e leve</li>
+          <li>✔ 100% gratuito</li>
+        </ul>
       </div>
     </section>
 
@@ -196,6 +231,7 @@
       <div class="card">
         <h2>Download</h2>
         <p>Version release initial V1.3 🚀</p>
+
         <a class="btn"
         href="https://github.com/el-abacaxiu/QuickSetup/releases/download/v1.0/QuickSetup.zip">
           Baixar ZIP
@@ -222,4 +258,3 @@
 
 </body>
 </html>
-
