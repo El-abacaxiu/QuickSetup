@@ -11,75 +11,99 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Segoe UI", system-ui, Arial, sans-serif;
     }
 
     html {
       scroll-behavior: smooth;
     }
 
+    /* 🎯 CORES PADRÃO (estilo app CustomTkinter) */
+    :root {
+      --bg-main: #1a1a1a;
+      --bg-sidebar: #151515;
+      --bg-card: #242424;
+      --hover: #2e2e2e;
+
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+
+      --text: #eaeaea;
+      --text-soft: #bdbdbd;
+    }
+
     body {
       display: flex;
-      background: #0f172a;
-      color: #ffffff;
+      background: var(--bg-main);
+      color: var(--text);
     }
 
     /* 🔥 SIDEBAR */
     .sidebar {
       width: 85px;
       height: 100vh;
-      background: #020617;
+      background: var(--bg-sidebar);
       position: fixed;
+
       display: flex;
       flex-direction: column;
       align-items: center;
+
       padding-top: 20px;
       gap: 18px;
-      border-right: 1px solid #111;
+
+      border-right: 1px solid #2a2a2a;
     }
 
     .nav-btn {
       width: 48px;
       height: 48px;
-      border-radius: 12px;
-      background: #0f172a;
+      border-radius: 14px;
+      background: var(--bg-card);
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       cursor: pointer;
-      transition: .2s;
+      transition: .15s;
       font-size: 20px;
     }
 
     .nav-btn:hover {
-      background: #2563eb;
-      transform: scale(1.1);
+      background: var(--hover);
+      transform: scale(1.08);
     }
 
     /* 🔥 CONTEÚDO */
     .content {
       margin-left: 85px;
       width: 100%;
-      position: relative;
     }
 
     section {
       min-height: 100vh;
       padding: 60px 40px;
+
       display: flex;
       justify-content: center;
       align-items: center;
+
       position: relative;
     }
 
-    /* 🔥 CARD */
+    /* 🔥 CARD estilo CTkFrame */
     .card {
       max-width: 800px;
       width: 100%;
-      background: #020617;
+
+      background: var(--bg-card);
       padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 0 50px rgba(37,99,235,.25);
+
+      border-radius: 18px;
+
+      box-shadow: 0 6px 20px rgba(0,0,0,.45);
+
       text-align: center;
     }
 
@@ -88,7 +112,7 @@
     }
 
     p {
-      opacity: .85;
+      color: var(--text-soft);
       margin-bottom: 20px;
     }
 
@@ -98,25 +122,28 @@
       margin-top: 20px;
     }
 
-    /* 🔥 BOTÃO */
+    /* 🔥 BOTÃO estilo CTkButton */
     .btn {
       display: inline-block;
-      padding: 16px 40px;
-      background: #2563eb;
+
+      padding: 14px 36px;
+
+      background: var(--accent);
       color: white;
+
       text-decoration: none;
       border-radius: 12px;
-      margin-top: 20px;
-      transition: .2s;
-      font-weight: bold;
+
+      font-weight: 600;
+      transition: .15s;
     }
 
     .btn:hover {
-      background: #1d4ed8;
+      background: var(--accent-hover);
       transform: scale(1.05);
     }
 
-    /* 🔥 TÍTULO GRANDE COM LOGO */
+    /* 🔥 TÍTULO GRANDE */
     .main-title {
       position: absolute;
       top: 22%;
@@ -127,13 +154,9 @@
       align-items: center;
       gap: 18px;
 
-      font-size: 100px;
+      font-size: 90px;
       font-weight: 900;
-      color: inherit;
-
-      animation: jelly 1.2s ease-out 1;
-
-      text-shadow: 0 0 25px rgba(255,255,255,.15);
+      opacity: .95;
     }
 
     .title-logo {
@@ -146,29 +169,16 @@
       margin-top: 140px;
     }
 
-    /* 🔥 ANIMAÇÃO GELATINA */
-    @keyframes jelly {
-      0% { transform: translate(-50%, -50%) scale(1,1); }
-      30% { transform: translate(-50%, -50%) scale(1.2,.85); }
-      50% { transform: translate(-50%, -50%) scale(.9,1.1); }
-      70% { transform: translate(-50%, -50%) scale(1.05,.95); }
-      100% { transform: translate(-50%, -50%) scale(1,1); }
-    }
-
-    /* 🌞 TEMA CLARO */
+    /* 🌞 MODO CLARO */
     body.claro {
-      background: #f3f3f3;
-      color: #111;
-    }
+      --bg-main: #f3f4f6;
+      --bg-sidebar: #e5e7eb;
+      --bg-card: #ffffff;
+      --hover: #dcdcdc;
 
-    body.claro .sidebar {
-      background: #e5e7eb;
+      --text: #111;
+      --text-soft: #555;
     }
-
-    body.claro .card {
-      background: white;
-    }
-
   </style>
 </head>
 
@@ -209,17 +219,18 @@
     <section id="sobre">
       <div class="card">
         <h2>Sobre o Projeto</h2>
+
         <p>
           O QuickSetup instala automaticamente os apps essenciais
           para deixar o PC pronto para jogos ou uso diário.
           Ideal após formatar o computador.
         </p>
 
-        </p>
-           ✔ Instala apps automaticamente
-           ✔ Ideal para PC recém-formatado
-           ✔ Rápido e leve
-           ✔ 100% gratuito
+        <p>
+          ✔ Instala apps automaticamente<br>
+          ✔ Ideal para PC recém-formatado<br>
+          ✔ Rápido e leve<br>
+          ✔ 100% gratuito
         </p>
       </div>
     </section>
