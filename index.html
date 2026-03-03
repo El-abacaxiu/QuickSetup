@@ -48,7 +48,7 @@
       flex-direction: column;
       align-items: center;
 
-      padding-top: 20px;
+      padding-top: 90px; /* espaço pro botão ☰ */
       gap: 18px;
 
       border-right: 1px solid #2a2a2a;
@@ -81,7 +81,7 @@
       transform: scale(1.08);
     }
 
-    /* 🔥 BOTÃO MENU FLUTUANTE */
+    /* 🔥 BOTÃO MENU (fora da sidebar) */
     .menu-float {
       position: fixed;
       top: 20px;
@@ -90,7 +90,7 @@
       width: 48px;
       height: 48px;
 
-      border-radius: 12px;
+      border-radius: 14px;
       background: var(--bg-card);
 
       display: flex;
@@ -100,15 +100,13 @@
       cursor: pointer;
       font-size: 20px;
 
-      box-shadow: 0 6px 16px rgba(0,0,0,.4);
-
-      transition: .2s;
       z-index: 1000;
+      box-shadow: 0 6px 16px rgba(0,0,0,.4);
     }
 
     .menu-float:hover {
       background: var(--hover);
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
     /* 🔥 CONTEÚDO */
@@ -133,7 +131,6 @@
       position: relative;
     }
 
-    /* 🔥 CARD */
     .card {
       max-width: 800px;
       width: 100%;
@@ -143,6 +140,8 @@
       box-shadow: 0 6px 20px rgba(0,0,0,.45);
       text-align: center;
     }
+
+    h2 { margin-bottom: 20px; }
 
     p {
       color: var(--text-soft);
@@ -155,7 +154,6 @@
       margin-top: 20px;
     }
 
-    /* 🔥 BOTÃO PADRÃO */
     .btn {
       display: inline-block;
       padding: 14px 36px;
@@ -172,7 +170,33 @@
       transform: scale(1.05);
     }
 
-    /* 🔗 BOTÃO GITHUB FLUTUANTE */
+    /* 🔥 TÍTULO GRANDE (igual teu original) */
+    .main-title {
+      position: absolute;
+      top: 22%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      display: flex;
+      align-items: center;
+      gap: 18px;
+
+      font-size: 90px;
+      font-weight: 900;
+      opacity: .95;
+    }
+
+    .title-logo {
+      width: 95px;
+      height: 95px;
+      object-fit: contain;
+    }
+
+    #home .card {
+      margin-top: 140px;
+    }
+
+    /* 🔗 BOTÃO GITHUB */
     .github-float {
       position: fixed;
       bottom: 25px;
@@ -192,9 +216,7 @@
       text-decoration: none;
 
       box-shadow: 0 6px 18px rgba(0,0,0,.5);
-
       transition: .2s;
-      z-index: 999;
     }
 
     .github-float:hover {
@@ -217,7 +239,7 @@
 
 <body>
 
-  <!-- ☰ botão menu -->
+  <!-- ☰ botão fixo -->
   <div class="menu-float" id="toggle-menu">☰</div>
 
   <!-- SIDEBAR -->
@@ -231,9 +253,17 @@
 
   <div class="content">
 
+    <!-- HOME -->
     <section id="home">
+
+      <div class="main-title">
+        <img src="template.jpg" class="title-logo">
+        <span>QuickSetup</span>
+      </div>
+
       <div class="card">
         <p>Seu PC pronto em minutos 🚀</p>
+
         <a class="btn"
         href="https://github.com/el-abacaxiu/QuickSetup/releases/download/v1.0/QuickSetup.zip">
           Baixar Agora
@@ -241,21 +271,43 @@
       </div>
     </section>
 
+
+    <!-- SOBRE (inteiro restaurado) -->
     <section id="sobre">
       <div class="card">
         <h2>Sobre o Projeto</h2>
-        <p>Instala automaticamente os apps essenciais do PC.</p>
+
+        <p>
+          O QuickSetup instala automaticamente os apps essenciais
+          para deixar o PC pronto para jogos ou uso diário.
+          Ideal após formatar o computador.
+        </p>
+
+        <p>
+          ✔ Instala apps automaticamente<br>
+          ✔ Ideal para PC recém-formatado<br>
+          ✔ Rápido e leve<br>
+          ✔ 100% gratuito
+        </p>
       </div>
     </section>
 
+
+    <!-- PRINTS -->
     <section id="prints">
       <div class="card">
+        <h2>Preview</h2>
         <img src="print03.jpeg" class="preview">
       </div>
     </section>
 
+
+    <!-- DOWNLOAD -->
     <section id="download">
       <div class="card">
+        <h2>Download</h2>
+        <p>Version release initial V1.5 🚀</p>
+
         <a class="btn"
         href="https://github.com/el-abacaxiu/QuickSetup/releases/download/v1.0/QuickSetup.zip">
           Baixar ZIP
@@ -265,11 +317,11 @@
 
   </div>
 
-  <!-- 🔗 botão pro repo no GitHub -->
+  <!-- 🔗 botão pro repo -->
   <a class="github-float"
      href="https://github.com/el-abacaxiu/QuickSetup"
      target="_blank"
-     title="Abrir no :contentReference[oaicite:0]{index=0}">
+     title="Abrir no GitHub">
      🐙
   </a>
 
@@ -282,18 +334,18 @@
     const content = document.querySelector(".content");
     const toggleMenu = document.getElementById("toggle-menu");
 
-    toggleMenu.addEventListener("click", () => {
+    toggleMenu.onclick = () => {
       sidebar.classList.toggle("closed");
       content.classList.toggle("full");
-    });
+    };
 
     const btnTema = document.getElementById("toggle-theme");
 
-    btnTema.addEventListener("click", () => {
+    btnTema.onclick = () => {
       document.body.classList.toggle("claro");
       btnTema.textContent =
         document.body.classList.contains("claro") ? "☀️" : "🌙";
-    });
+    };
   </script>
 
 </body>
