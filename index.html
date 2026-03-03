@@ -232,13 +232,30 @@
       transform: translateY(-3px);
     }
 
-    /* 🔥 GRID PRINTS */
-    .preview-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 15px;
-    }
+    /* 🔥 GRID PRINTS (UPGRADE PRO) */
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.preview {
+  width: 100%;
+  height: 240px; /* bem maior */
+  object-fit: cover;
+
+  border-radius: 16px;
+
+  box-shadow: 0 8px 22px rgba(0,0,0,.35);
+
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.preview:hover {
+  transform: scale(1.04);
+  box-shadow: 0 14px 34px rgba(0,0,0,.55);
+}
 
     /* 🔗 BOTÃO GITHUB */
     .github-float {
