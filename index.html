@@ -14,9 +14,7 @@
       font-family: "Segoe UI", system-ui, Arial, sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     :root {
       --bg-main: #1a1a1a;
@@ -48,7 +46,7 @@
       flex-direction: column;
       align-items: center;
 
-      padding-top: 90px; /* espaço pro botão ☰ */
+      padding-top: 90px;
       gap: 18px;
 
       border-right: 1px solid #2a2a2a;
@@ -81,7 +79,7 @@
       transform: scale(1.08);
     }
 
-    /* 🔥 BOTÃO MENU (fora da sidebar) */
+    /* 🔥 BOTÃO MENU */
     .menu-float {
       position: fixed;
       top: 20px;
@@ -131,12 +129,16 @@
       position: relative;
     }
 
+    /* 🔥 CARD */
     .card {
       max-width: 800px;
       width: 100%;
+
       background: var(--bg-card);
       padding: 40px;
+
       border-radius: 18px;
+
       box-shadow: 0 6px 20px rgba(0,0,0,.45);
       text-align: center;
     }
@@ -151,9 +153,14 @@
     img.preview {
       width: 100%;
       border-radius: 14px;
-      margin-top: 20px;
+      transition: .2s;
     }
 
+    img.preview:hover {
+      transform: scale(1.03);
+    }
+
+    /* 🔥 BOTÃO */
     .btn {
       display: inline-block;
       padding: 14px 36px;
@@ -170,7 +177,7 @@
       transform: scale(1.05);
     }
 
-    /* 🔥 TÍTULO GRANDE (igual teu original) */
+    /* 🔥 TÍTULO GRANDE */
     .main-title {
       position: absolute;
       top: 22%;
@@ -194,6 +201,43 @@
 
     #home .card {
       margin-top: 140px;
+    }
+
+    /* 🔥 FEATURES GRID */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .feature-card {
+      background: var(--bg-main);
+      padding: 18px 12px;
+      border-radius: 12px;
+
+      font-weight: 600;
+      font-size: 14px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      transition: .15s;
+    }
+
+    .feature-card:hover {
+      background: var(--hover);
+      transform: translateY(-3px);
+    }
+
+    /* 🔥 GRID PRINTS */
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 15px;
     }
 
     /* 🔗 BOTÃO GITHUB */
@@ -239,10 +283,8 @@
 
 <body>
 
-  <!-- ☰ botão fixo -->
   <div class="menu-float" id="toggle-menu">☰</div>
 
-  <!-- SIDEBAR -->
   <div class="sidebar">
     <div class="nav-btn" onclick="go('home')">🏠</div>
     <div class="nav-btn" onclick="go('sobre')">📄</div>
@@ -272,7 +314,7 @@
     </section>
 
 
-    <!-- SOBRE (inteiro restaurado) -->
+    <!-- SOBRE -->
     <section id="sobre">
       <div class="card">
         <h2>Sobre o Projeto</h2>
@@ -289,6 +331,16 @@
           ✔ Rápido e leve<br>
           ✔ 100% gratuito
         </p>
+
+        <!-- NOVA GRID -->
+        <div class="features-grid">
+          <div class="feature-card">⚡ Rápido</div>
+          <div class="feature-card">🧠 Leve</div>
+          <div class="feature-card">🆓 Gratuito</div>
+          <div class="feature-card">🎮 Gamer Ready</div>
+          <div class="feature-card">🔄 Automático</div>
+          <div class="feature-card">💻 Open Source</div>
+        </div>
       </div>
     </section>
 
@@ -297,7 +349,12 @@
     <section id="prints">
       <div class="card">
         <h2>Preview</h2>
-        <img src="print03.jpeg" class="preview">
+
+        <div class="preview-grid">
+          <img src="print01.jpeg" class="preview">
+          <img src="print02.jpeg" class="preview">
+          <img src="print03.jpeg" class="preview">
+        </div>
       </div>
     </section>
 
@@ -317,7 +374,6 @@
 
   </div>
 
-  <!-- 🔗 botão pro repo -->
   <a class="github-float"
      href="https://github.com/el-abacaxiu/QuickSetup"
      target="_blank"
