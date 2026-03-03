@@ -52,12 +52,13 @@
       gap: 18px;
 
       border-right: 1px solid #2a2a2a;
-      transition: .25s;
+
+      transition: transform .25s;
+      z-index: 500;
     }
 
     .sidebar.closed {
-      width: 0;
-      overflow: hidden;
+      transform: translateX(-100%);
     }
 
     .nav-btn {
@@ -80,11 +81,41 @@
       transform: scale(1.08);
     }
 
+    /* 🔥 BOTÃO MENU FLUTUANTE */
+    .menu-float {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+
+      width: 48px;
+      height: 48px;
+
+      border-radius: 12px;
+      background: var(--bg-card);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+      font-size: 20px;
+
+      box-shadow: 0 6px 16px rgba(0,0,0,.4);
+
+      transition: .2s;
+      z-index: 1000;
+    }
+
+    .menu-float:hover {
+      background: var(--hover);
+      transform: scale(1.1);
+    }
+
     /* 🔥 CONTEÚDO */
     .content {
       margin-left: 85px;
       width: 100%;
-      transition: .25s;
+      transition: margin-left .25s;
     }
 
     .content.full {
@@ -113,10 +144,6 @@
       text-align: center;
     }
 
-    h2 {
-      margin-bottom: 20px;
-    }
-
     p {
       color: var(--text-soft);
       margin-bottom: 20px;
@@ -128,7 +155,7 @@
       margin-top: 20px;
     }
 
-    /* 🔥 BOTÃO */
+    /* 🔥 BOTÃO PADRÃO */
     .btn {
       display: inline-block;
       padding: 14px 36px;
@@ -143,43 +170,6 @@
     .btn:hover {
       background: var(--accent-hover);
       transform: scale(1.05);
-    }
-
-    /* 🔥 TÍTULO */
-    .main-title {
-      position: absolute;
-      top: 22%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-
-      display: flex;
-      align-items: center;
-      gap: 18px;
-
-      font-size: 90px;
-      font-weight: 900;
-      opacity: .95;
-    }
-
-    .title-logo {
-      width: 95px;
-      height: 95px;
-      object-fit: contain;
-    }
-
-    #home .card {
-      margin-top: 140px;
-    }
-
-    /* 🌞 MODO CLARO */
-    body.claro {
-      --bg-main: #f3f4f6;
-      --bg-sidebar: #e5e7eb;
-      --bg-card: #ffffff;
-      --hover: #dcdcdc;
-
-      --text: #111;
-      --text-soft: #555;
     }
 
     /* 🔗 BOTÃO GITHUB FLUTUANTE */
@@ -211,14 +201,27 @@
       background: #444;
       transform: scale(1.12) rotate(6deg);
     }
+
+    /* 🌞 MODO CLARO */
+    body.claro {
+      --bg-main: #f3f4f6;
+      --bg-sidebar: #e5e7eb;
+      --bg-card: #ffffff;
+      --hover: #dcdcdc;
+
+      --text: #111;
+      --text-soft: #555;
+    }
   </style>
 </head>
 
 <body>
 
+  <!-- ☰ botão menu -->
+  <div class="menu-float" id="toggle-menu">☰</div>
+
   <!-- SIDEBAR -->
   <div class="sidebar">
-    <div class="nav-btn" id="toggle-menu">☰</div>
     <div class="nav-btn" onclick="go('home')">🏠</div>
     <div class="nav-btn" onclick="go('sobre')">📄</div>
     <div class="nav-btn" onclick="go('prints')">🖼️</div>
@@ -229,14 +232,8 @@
   <div class="content">
 
     <section id="home">
-      <div class="main-title">
-        <img src="template.jpg" class="title-logo">
-        <span>QuickSetup</span>
-      </div>
-
       <div class="card">
         <p>Seu PC pronto em minutos 🚀</p>
-
         <a class="btn"
         href="https://github.com/el-abacaxiu/QuickSetup/releases/download/v1.0/QuickSetup.zip">
           Baixar Agora
@@ -247,25 +244,18 @@
     <section id="sobre">
       <div class="card">
         <h2>Sobre o Projeto</h2>
-        <p>
-          O QuickSetup instala automaticamente os apps essenciais
-          para deixar o PC pronto para jogos ou uso diário.
-        </p>
+        <p>Instala automaticamente os apps essenciais do PC.</p>
       </div>
     </section>
 
     <section id="prints">
       <div class="card">
-        <h2>Preview</h2>
         <img src="print03.jpeg" class="preview">
       </div>
     </section>
 
     <section id="download">
       <div class="card">
-        <h2>Download</h2>
-        <p>Version release initial V1.5 🚀</p>
-
         <a class="btn"
         href="https://github.com/el-abacaxiu/QuickSetup/releases/download/v1.0/QuickSetup.zip">
           Baixar ZIP
@@ -275,10 +265,11 @@
 
   </div>
 
-  <!-- 🔗 BOTÃO FLUTUANTE -->
+  <!-- 🔗 botão pro repo no GitHub -->
   <a class="github-float"
      href="https://github.com/el-abacaxiu/QuickSetup"
-     target="_blank">
+     target="_blank"
+     title="Abrir no :contentReference[oaicite:0]{index=0}">
      🐙
   </a>
 
@@ -287,13 +278,6 @@
       document.getElementById(id).scrollIntoView();
     }
 
-    const btnTema = document.getElementById("toggle-theme");
-    btnTema.addEventListener("click", () => {
-      document.body.classList.toggle("claro");
-      btnTema.textContent =
-        document.body.classList.contains("claro") ? "☀️" : "🌙";
-    });
-
     const sidebar = document.querySelector(".sidebar");
     const content = document.querySelector(".content");
     const toggleMenu = document.getElementById("toggle-menu");
@@ -301,6 +285,14 @@
     toggleMenu.addEventListener("click", () => {
       sidebar.classList.toggle("closed");
       content.classList.toggle("full");
+    });
+
+    const btnTema = document.getElementById("toggle-theme");
+
+    btnTema.addEventListener("click", () => {
+      document.body.classList.toggle("claro");
+      btnTema.textContent =
+        document.body.classList.contains("claro") ? "☀️" : "🌙";
     });
   </script>
 
