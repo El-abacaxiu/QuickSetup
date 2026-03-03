@@ -18,7 +18,6 @@
       scroll-behavior: smooth;
     }
 
-    /* 🎯 CORES PADRÃO (estilo app CustomTkinter) */
     :root {
       --bg-main: #1a1a1a;
       --bg-sidebar: #151515;
@@ -53,6 +52,12 @@
       gap: 18px;
 
       border-right: 1px solid #2a2a2a;
+      transition: .25s;
+    }
+
+    .sidebar.closed {
+      width: 0;
+      overflow: hidden;
     }
 
     .nav-btn {
@@ -79,6 +84,11 @@
     .content {
       margin-left: 85px;
       width: 100%;
+      transition: .25s;
+    }
+
+    .content.full {
+      margin-left: 0;
     }
 
     section {
@@ -92,18 +102,14 @@
       position: relative;
     }
 
-    /* 🔥 CARD estilo CTkFrame */
+    /* 🔥 CARD */
     .card {
       max-width: 800px;
       width: 100%;
-
       background: var(--bg-card);
       padding: 40px;
-
       border-radius: 18px;
-
       box-shadow: 0 6px 20px rgba(0,0,0,.45);
-
       text-align: center;
     }
 
@@ -122,18 +128,14 @@
       margin-top: 20px;
     }
 
-    /* 🔥 BOTÃO estilo CTkButton */
+    /* 🔥 BOTÃO */
     .btn {
       display: inline-block;
-
       padding: 14px 36px;
-
       background: var(--accent);
       color: white;
-
       text-decoration: none;
       border-radius: 12px;
-
       font-weight: 600;
       transition: .15s;
     }
@@ -143,7 +145,7 @@
       transform: scale(1.05);
     }
 
-    /* 🔥 TÍTULO GRANDE */
+    /* 🔥 TÍTULO */
     .main-title {
       position: absolute;
       top: 22%;
@@ -179,6 +181,36 @@
       --text: #111;
       --text-soft: #555;
     }
+
+    /* 🔗 BOTÃO GITHUB FLUTUANTE */
+    .github-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+
+      width: 60px;
+      height: 60px;
+
+      border-radius: 50%;
+      background: #333;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 28px;
+      text-decoration: none;
+
+      box-shadow: 0 6px 18px rgba(0,0,0,.5);
+
+      transition: .2s;
+      z-index: 999;
+    }
+
+    .github-float:hover {
+      background: #444;
+      transform: scale(1.12) rotate(6deg);
+    }
   </style>
 </head>
 
@@ -186,6 +218,7 @@
 
   <!-- SIDEBAR -->
   <div class="sidebar">
+    <div class="nav-btn" id="toggle-menu">☰</div>
     <div class="nav-btn" onclick="go('home')">🏠</div>
     <div class="nav-btn" onclick="go('sobre')">📄</div>
     <div class="nav-btn" onclick="go('prints')">🖼️</div>
@@ -193,12 +226,9 @@
     <div class="nav-btn" id="toggle-theme">🌙</div>
   </div>
 
-
   <div class="content">
 
-    <!-- HOME -->
     <section id="home">
-
       <div class="main-title">
         <img src="template.jpg" class="title-logo">
         <span>QuickSetup</span>
@@ -214,29 +244,16 @@
       </div>
     </section>
 
-
-    <!-- SOBRE -->
     <section id="sobre">
       <div class="card">
         <h2>Sobre o Projeto</h2>
-
         <p>
           O QuickSetup instala automaticamente os apps essenciais
           para deixar o PC pronto para jogos ou uso diário.
-          Ideal após formatar o computador.
-        </p>
-
-        <p>
-          ✔ Instala apps automaticamente<br>
-          ✔ Ideal para PC recém-formatado<br>
-          ✔ Rápido e leve<br>
-          ✔ 100% gratuito
         </p>
       </div>
     </section>
 
-
-    <!-- PRINTS -->
     <section id="prints">
       <div class="card">
         <h2>Preview</h2>
@@ -244,8 +261,6 @@
       </div>
     </section>
 
-
-    <!-- DOWNLOAD -->
     <section id="download">
       <div class="card">
         <h2>Download</h2>
@@ -260,6 +275,12 @@
 
   </div>
 
+  <!-- 🔗 BOTÃO FLUTUANTE -->
+  <a class="github-float"
+     href="https://github.com/el-abacaxiu/QuickSetup"
+     target="_blank">
+     🐙
+  </a>
 
   <script>
     function go(id){
@@ -267,11 +288,19 @@
     }
 
     const btnTema = document.getElementById("toggle-theme");
-
     btnTema.addEventListener("click", () => {
       document.body.classList.toggle("claro");
       btnTema.textContent =
         document.body.classList.contains("claro") ? "☀️" : "🌙";
+    });
+
+    const sidebar = document.querySelector(".sidebar");
+    const content = document.querySelector(".content");
+    const toggleMenu = document.getElementById("toggle-menu");
+
+    toggleMenu.addEventListener("click", () => {
+      sidebar.classList.toggle("closed");
+      content.classList.toggle("full");
     });
   </script>
 
