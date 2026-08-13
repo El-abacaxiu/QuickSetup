@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# PyInstaller
+software/build/
+software/dist/
+
+# Ambientes virtuais
+.venv/
+venv/
+
+# Arquivos temporários
+*.log
